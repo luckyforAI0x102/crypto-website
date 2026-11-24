@@ -1,0 +1,145 @@
+:root {
+  color-scheme: dark;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: #060d23;
+  color: #f4f7fb;
+  font-synthesis: none;
+  --accent: #67dce7;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+button:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+
+main {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 60px 24px 38px;
+  background: radial-gradient(ellipse at 82% 113%, #112d55 0%, #091834 38%, transparent 69%),
+    linear-gradient(150deg, #03091e 0%, #07112b 100%);
+}
+.demo-tools {
+  position: absolute;
+  inset: 12px 24px auto;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  color: #a5b2c8;
+  font-size: .875rem;
+  line-height: 1.5;
+}
+.demo-tools button { flex: none; }
+
+.case-card {
+  width: min(100%, 850px);
+  padding: 48px 58px 43px;
+  background: #171f36;
+  border-radius: 5px;
+  box-shadow: 0 12px 32px rgb(0 5 20 / 26%);
+}
+header { text-align: center; }
+.case-mark { display: block; width: 76px; height: 84px; margin: 0 auto; }
+h1 {
+  margin: 25px 0 7px;
+  font-size: 2.125rem;
+  line-height: 1.22;
+  letter-spacing: -0.035em;
+  font-weight: 700;
+}
+.intro {
+  max-width: 620px;
+  margin: 0 auto;
+  font-size: 1.22rem;
+  line-height: 1.5;
+  color: #b7c3d8;
+}
+fieldset { min-width: 0; margin: 30px 0 0; padding: 0; border: 0; }
+legend { padding: 0; font-size: 1.125rem; font-weight: 650; }
+.digits {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 58px;
+}
+.digits input {
+  width: 100%;
+  min-width: 0;
+  height: 64px;
+  padding: 0 0 5px;
+  border: 0;
+  border-radius: 0;
+  border-bottom: 4px solid #46516a;
+  outline: none;
+  appearance: none;
+  background: transparent;
+  color: #f4f7fb;
+  caret-color: var(--accent);
+  text-align: center;
+  font-size: 2.5rem;
+  font-variant-numeric: tabular-nums;
+}
+.digits input:focus { border-color: var(--accent); }
+.digits input::selection { background: #245a72; }
+.hint {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 69px;
+  color: #a5b2c8;
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  text-align: center;
+}
+.hint-dot { flex: 0 0 7px; align-self: flex-start; margin-top: .56em; height: 7px; border-radius: 50%; background: currentColor; }
+.hint.success { color: #8ee6d1; }
+.hint.error { color: #ffb8af; }
+.storage-note { margin: 14px 0 24px; font-size: .9375rem; line-height: 1.5; color: #a2b0c8; text-align: center; }
+.save-button {
+  width: 100%;
+  min-height: 68px;
+  padding: 12px;
+  border: 0;
+  border-radius: 5px;
+  background: var(--accent);
+  color: #092332;
+  font-size: 1.1875rem;
+  font-weight: 650;
+}
+.save-button:hover:enabled { background: #90ecf1; }
+.save-button:disabled { background: #2e394f; color: #a2aec2; cursor: default; }
+footer { margin-top: 22px; text-align: center; font-size: 1.125rem; line-height: 1.5; color: #b8c3d7; }
+footer button, .demo-tools button { padding: 0; border: 0; background: none; color: var(--accent); font-weight: 600; }
+footer button:hover, .demo-tools button:hover { text-decoration: underline; text-underline-offset: 3px; }
+.save-button span { margin-inline-start: .4em; }
+dialog { width: min(26rem, calc(100% - 32px)); border: 1px solid #46516a; border-radius: 6px; padding: 28px; background: #171f36; color: #f4f7fb; }
+dialog::backdrop { background: rgb(3 9 30 / 75%); }
+dialog h2 { margin: 0; font-size: 1.5rem; }
+dialog p { margin: 14px 0 24px; line-height: 1.5; }
+dialog .save-button { min-height: 44px; font-size: 1rem; }
+
+@media (min-width: 1000px) {
+  main { padding-inline-end: 68px; padding-block-start: 60px; }
+}
+@media (max-width: 640px) {
+  main { padding: 16px 14px 20px; grid-template-rows: auto 1fr; gap: 16px; }
+  .demo-tools { position: static; width: 100%; }
+  .case-card { padding: 34px clamp(18px, 5vw, 32px) 30px; }
+  .case-mark { width: 58px; height: 64px; }
+  h1 { margin-top: 21px; font-size: 1.8rem; }
+  .intro { font-size: 1rem; }
+  .digits { margin-top: 27px; gap: clamp(6px, 2vw, 12px); }
+  .digits input { height: 54px; font-size: 2rem; border-bottom-width: 3px; }
+  .hint { margin-top: 38px; font-size: 1rem; gap: 8px; }
+  .save-button { min-height: 54px; }
+  footer { margin-top: 19px; font-size: 1rem; }
+}
+@media (forced-colors: active) {
+  .digits input:focus { outline: 2px solid Highlight; }
+  .save-button { border: 1px solid ButtonText; }
+}
